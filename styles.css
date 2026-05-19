@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MESUT Ride</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#f4fff6;
+      color:#1d1d1d;
+      line-height:1.5;
+    }
+
+    header{
+      background:#0b7a33;
+      color:white;
+      padding:20px;
+      text-align:center;
+    }
+
+    header h1{
+      font-size:2rem;
+    }
+
+    header p{
+      margin-top:8px;
+      font-size:0.95rem;
+    }
+
+    .banner{
+      background:#fff3cd;
+      color:#856404;
+      padding:12px;
+      text-align:center;
+      font-weight:bold;
+      border-bottom:2px solid #ffe08a;
+    }
+
+    .container{
+      padding:16px;
+      max-width:900px;
+      margin:auto;
+    }
+
+    .card{
+      background:white;
+      border-radius:14px;
+      padding:18px;
+      margin-bottom:20px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .card h2{
+      color:#0b7a33;
+      margin-bottom:15px;
+      font-size:1.3rem;
+    }
+
+    /* Booking Form */
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    input, select, button{
+      padding:14px;
+      border-radius:10px;
+      border:1px solid #ccc;
+      font-size:1rem;
+    }
+
+    input:focus,
+    select:focus{
+      outline:none;
+      border:1px solid #0b7a33;
+    }
+
+    .book-btn{
+      background:#0b7a33;
+      color:white;
+      border:none;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .book-btn:hover{
+      background:#086127;
+    }
+
+    /* Fare Table */
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    table th{
+      background:#0b7a33;
+      color:white;
+      padding:12px;
+      font-size:0.95rem;
+    }
+
+    table td{
+      padding:12px;
+      border-bottom:1px solid #ddd;
+      text-align:center;
+    }
+
+    /* Fake Map */
+
+    .map{
+      position:relative;
+      background:#dff5e4;
+      height:260px;
+      border-radius:14px;
+      overflow:hidden;
+      border:2px solid #0b7a33;
+    }
+
+    .road{
+      position:absolute;
+      background:#9aa09d;
+    }
+
+    .road1{
+      width:100%;
+      height:10px;
+      top:45%;
+    }
+
+    .road2{
+      width:10px;
+      height:100%;
+      left:50%;
+    }
+
+    .keke{
+      position:absolute;
+      width:45px;
+      height:45px;
+      background:#0b7a33;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:white;
+      font-size:0.75rem;
+      font-weight:bold;
+      animation:float 3s infinite ease-in-out;
+    }
+
+    .k1{
+      top:20%;
+      left:25%;
+    }
+
+    .k2{
+      top:55%;
+      left:65%;
+      animation-delay:1s;
+    }
+
+    .k3{
+      top:70%;
+      left:35%;
+      animation-delay:2s;
+    }
+
+    @keyframes float{
+      0%{transform:translateY(0);}
+      50%{transform:translateY(-8px);}
+      100%{transform:translateY(0);}
+    }
+
+    /* SOS */
+
+    .sos-section{
+      text-align:center;
+    }
+
+    .sos-btn{
+      background:red;
+      color:white;
+      border:none;
+      padding:18px 30px;
+      border-radius:50px;
+      font-size:1.2rem;
+      font-weight:bold;
+      cursor:pointer;
+      animation:pulse 1.5s infinite;
+    }
+
+    @keyframes pulse{
+      0%{
+        transform:scale(1);
+        box-shadow:0 0 0 0 rgba(255,0,0,0.6);
+      }
+
+      70%{
+        transform:scale(1.05);
+        box-shadow:0 0 0 18px rgba(255,0,0,0);
+      }
+
+      100%{
+        transform:scale(1);
+      }
+    }
+
+    footer{
+      background:#0b7a33;
+      color:white;
+      text-align:center;
+      padding:15px;
+      margin-top:20px;
+    }
+
+    /* Desktop */
+
+    @media(min-width:768px){
+
+      .grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:20px;
+      }
+
+      header h1{
+        font-size:2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>MESUT Ride</h1>
+    <p>Safe & Fast Keke Rides Around Agbani • Orie • ESUT</p>
+  </header>
+
+  <div class="banner">
+    ⚠ Night Fare Notice: Rides after 8PM may attract additional charges.
+  </div>
+
+  <div class="container">
+
+    <div class="grid">
+
+      <!-- Booking Form -->
+      <div class="card">
+        <h2>Book a Ride</h2>
+
+        <form id="rideForm">
+
+          <select required>
+            <option value="">Select Pickup Point</option>
+            <option>ESUT Gate</option>
+            <option>School Hostel</option>
+            <option>Orie Market</option>
+            <option>Agbani Junction</option>
+          </select>
+
+          <select required>
+            <option value="">Select Dropoff Point</option>
+            <option>School Hostel</option>
+            <option>ESUT Gate</option>
+            <option>Orie Market</option>
+            <option>Agbani Junction</option>
+          </select>
+
+          <input type="time" required />
+
+          <button class="book-btn" type="submit">
+            Request Ride
+          </button>
+
+        </form>
+      </div>
+
+      <!-- Fare Table -->
+      <div class="card">
+        <h2>Fixed Fare Table</h2>
+
+        <table>
+          <tr>
+            <th>Route</th>
+            <th>Fare</th>
+          </tr>
+
+          <tr>
+            <td>Gate → Hostel</td>
+            <td>₦150</td>
+          </tr>
+
+          <tr>
+            <td>Hostel → Orie</td>
+            <td>₦200</td>
+          </tr>
+
+          <tr>
+            <td>Gate → Orie</td>
+            <td>₦250</td>
+          </tr>
+
+          <tr>
+            <td>Agbani Junction → ESUT</td>
+            <td>₦300</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- Fake Live Map -->
+    <div class="card">
+      <h2>Live Keke Availability</h2>
+
+      <div class="map">
+
+        <div class="road road1"></div>
+        <div class="road road2"></div>
+
+        <div class="keke k1">K1</div>
+        <div class="keke k2">K2</div>
+        <div class="keke k3">K3</div>
+
+      </div>
+
+      <p style="margin-top:10px;">
+        🟢 3 Kekes currently active around the ESUT axis.
+      </p>
+    </div>
+
+    <!-- SOS -->
+    <div class="card sos-section">
+
+      <h2>Emergency SOS</h2>
+
+      <button class="sos-btn" onclick="triggerSOS()">
+        🚨 SOS ALERT
+      </button>
+
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 MESUT Ride — Mock Ride Hailing UI
+  </footer>
+
+  <script>
+    // Fake booking submission
+
+    document.getElementById("rideForm")
+      .addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      alert("Ride request submitted successfully! A nearby keke will contact you shortly.");
+
+    });
+
+    // SOS Button
+
+    function triggerSOS(){
+
+      alert("🚨 Emergency Alert Sent!\n\nYour live location has been shared with nearby security personnel.");
+
+    }
+  </script>
+
+</body>
+</html>
