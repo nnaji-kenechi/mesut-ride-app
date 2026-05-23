@@ -1,4 +1,4 @@
-![Deploy](https://github.com/nnaji-kenechi/mesut-ride-app/.github/workflows/deploy.yml/badge.svg)
+![Deploy](https://github.com/nnaji-kenechi/mesut-ride-app/.github/workflows/deploy.yml/)
 
 # CI/CD Website Deployment Project
 
