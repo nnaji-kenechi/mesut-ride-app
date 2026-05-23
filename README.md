@@ -1,3 +1,5 @@
+![Deploy](https://github.com/nnaji-kenechi/mesut-ride/actions/workflows/deploy.yml/badge.svg)
+
 # CI/CD Website Deployment Project
 
 ## Project Overview
